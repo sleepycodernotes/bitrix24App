@@ -13,6 +13,11 @@ if(isset($_POST['addDeal'])){
 
     $appsId = $_POST['apDeal'];
 
+    if(empty($appsId)){
+        Header("Location:/dealTab.php");
+        die;
+    }
+
     $query = "SELECT * FROM apartments where id IN(";
 
     for($i=0;$i<count($appsId);$i++){
